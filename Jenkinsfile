@@ -2,7 +2,7 @@ pipeline{
     //Directives
     agent any
     tools {
-        maven 'maven'
+        maven 'Mavens Lab'
     }
     environment{
        ArtifactId = readMavenPom().getArtifactId()
