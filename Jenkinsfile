@@ -2,7 +2,7 @@ pipeline{
     //Directives
     agent any
     tools {
-        maven 'maven'
+        maven 'Mavens lab'
     }
     stages {
         // Specify various stage with in stages
