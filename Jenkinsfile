@@ -34,11 +34,9 @@ pipeline{
 
                     def NexusRepo = Version.endswith("SNAPSHOT") ? 
                     "arrydevopslab-SNAPSHOT" : "arrydevopslab-RELEASE"
-                
-                nexusArtifactUploader artifacts: [[
-                artifactId: "${ArtifactId}", 
+                nexusArtifactUploader artifacts: [[artifactId: "${ArtifactId}", 
                 classifier: '', 
-                file: 'target/ArywsDevOpsLab-0.0.4-SNAPSHOT.war', 
+                file: "target/${ArtifactId}-${Version}.war", 
                 type: 'war']], 
                 credentialsId: '7af5b573-7d08-4725-899c-22e2bed1714e', 
                 groupId: "${GroupId}", 
