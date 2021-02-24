@@ -4,6 +4,11 @@ pipeline{
     tools {
         maven 'Mavens lab'
     }
+    environment{
+        ArtifactId = readMavenPom().getArtifactId()
+        Version  = readMavenPom().getVersion()
+        Name   = readMavenPom().getName()
+    }
     stages {
         // Specify various stage with in stages
 
@@ -38,5 +43,14 @@ pipeline{
 
             }
         }
+        // stage 4 : Print some information
+        stage ('publish some information') {
+            steps
+               echo "ArtifactsID Is '${ArtifactId}'"
+               echo "The Version Is '${Version}'"
+               echo "Group Id is '{}'"
+               echo "Name is '${Name}'"
+
         }
+  }
 }
