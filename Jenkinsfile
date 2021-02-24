@@ -35,12 +35,12 @@ pipeline{
                 file: 'target/ArywsDevOpsLab-0.0.4-SNAPSHOT.war', 
                 type: 'war']], 
                 credentialsId: '7af5b573-7d08-4725-899c-22e2bed1714e', 
-                groupId: 'com.arywsdevopslab', 
+                groupId: '${GroupId}', 
                 nexusUrl: '192.168.1.7:8081', 
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: 'arrydevopslab-SNAPSHOT', 
-                version: '0.0.4-SNAPSHOT'
+                version: '${Version}'
 
             }
         }
