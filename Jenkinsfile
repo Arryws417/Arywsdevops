@@ -4,11 +4,6 @@ pipeline{
     tools {
         maven 'Mavens lab'
     }
-    environment{
-        artifactId = readMavenPom().getArtifactId()
-        version  = readMavenPom().getVersion()
-        name   = readMavenPom().getName()
-    }
     stages {
         // Specify various stage with in stages
 
