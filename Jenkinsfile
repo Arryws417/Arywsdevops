@@ -29,7 +29,13 @@ pipeline{
         }
         // Stage3 : Publish Artefacts ke Nexus Server
         stage ('Publish to Nexus') {
-            steps { nexusArtifactUploader artifacts: [[
+            steps { 
+                script {
+
+                    def NexusRepo = Version.endswith("SNAPSHOT") ? 
+                    "arrydevopslab-SNAPSHOT" : "arrydevopslab-RELEASE"
+                
+                nexusArtifactUploader artifacts: [[
                 artifactId: "${ArtifactId}", 
                 classifier: '', 
                 file: 'target/ArywsDevOpsLab-0.0.4-SNAPSHOT.war', 
@@ -40,9 +46,9 @@ pipeline{
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: 'arrydevopslab-SNAPSHOT', 
-                version: "${Version}"
-
-            }
+                version: "${Version}"       
+             }
+         }
         }
         // stage 4 : Print some information
         stage ('publish some information'){
