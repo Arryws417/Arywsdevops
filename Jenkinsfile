@@ -28,28 +28,20 @@ pipeline{
         }
         // Stage3 : Publish Artefacts ke Nexus Server
         stage ('Publish to Nexus') {
-            steps {
-                nexusArtifactUploader artifacts: [[artifactId: 'VinayDevOpsLab'
+            steps { nexusArtifactUploader artifacts: [[
+                artifactId: 'ArywsDevOpsLab', 
                 classifier: '', 
-                file: 'target/arrydevopslab-0.0.4-SNAPSHOT.war'
-                type: 'war']],
-                credentialsId: '417',
-                groupId: 'com.vinaysdevopslab',
-                nexusUrl: '192.168.1.7:8081',
-                nexusVersion: 'nexus3',
-                protocol: 'http',
-                repository: 'arrydevopslab-SNAPSHOT',
+                file: 'target/ArywsDevOpsLab-0.0.4-SNAPSHOT.war', 
+                type: 'war']], 
+                credentialsId: '7af5b573-7d08-4725-899c-22e2bed1714e', 
+                groupId: 'com.arywsdevopslab', 
+                nexusUrl: '192.168.1.7:8081', 
+                nexusVersion: 'nexus3', 
+                protocol: 'http', 
+                repository: 'arrydevopslab-SNAPSHOT', 
                 version: '0.0.4-SNAPSHOT'
+
             }
         }
-        // Stage4 : Print some information
-        stage ('Print environment variables') {
-          steps {
-              echo "Artifact ID is '${artifactId}'"
-              echo "Version is '${version}'"
-              echo "GroupID is '{}'"
-              echo "Name is '${name}'"
-          }
         }
-    }
 }
