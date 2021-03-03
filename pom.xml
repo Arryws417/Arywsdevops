@@ -4,7 +4,7 @@
   <groupId>com.arywsdevopslab</groupId>
   <artifactId>ArywsDevOpsLab</artifactId>
   <packaging>war</packaging>
-  <version>0.0.4</version>
+  <version>0.0.4-SNAPSHOT</version>
   <name>ArywsDevOpsLab</name>
   <url>http://maven.apache.org</url>
   <dependencies>
